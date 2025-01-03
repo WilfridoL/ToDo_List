@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { Contexto } from '../../context/GlobalContext'
 import Input from '../Inputs'
+import { FaPaperPlane, FaPlus } from 'react-icons/fa'
+import { IoClose } from 'react-icons/io5'
 
-const Form = () => {
-  const {setItemData} = useContext(Contexto)
-  
+const FormItem = () => {
+  const { setItemData } = useContext(Contexto)
+
   const [textItem, setTextItem] = useState("")
   const [activeAdd, setActiveAdd] = useState(false)
 
@@ -13,25 +15,28 @@ const Form = () => {
     let data = {
       id: Math.floor(Math.random() * 1000),
       text: textItem,
-      check:false
+      check: false
     }
     setItemData((prevItem) => [...prevItem, data])
-    
-  } 
+
+  }
 
   return (<>
     <div className="new_item">
-        {activeAdd ? <form onSubmit={dataItem} className="input_new_item">
-        <Input data={textItem} change={setTextItem}/>
-          <button type="submit">Añadir</button>
-          <button type="button" onClick={() => setActiveAdd(!activeAdd)}>X</button>
-        </form> :
+      {activeAdd ? <form onSubmit={dataItem} className="input_new_item">
+        <button type="button" onClick={() => setActiveAdd(!activeAdd)}><IoClose /></button>
+        <Input data={textItem} change={setTextItem} />
+        <button type="submit"><FaPaperPlane /></button>
+      </form> :
         <div className="btn_new_item">
-          <button type="button" onClick={() => setActiveAdd(!activeAdd)}>Añadir nuevo item</button>
-        </div> }
-      </div>
+          <button type="button" onClick={() => setActiveAdd(!activeAdd)}>
+            <div className='icon_plus'><FaPlus /></div>
+            Add new list
+          </button>
+        </div>}
+    </div>
   </>
   )
 }
 
-export default Form
+export default FormItem

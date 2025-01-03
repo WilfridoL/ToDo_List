@@ -6,7 +6,6 @@ const GlobalContext = ({ children }) => {
   // STATES
   const [isLog, setIsLog] = useState(false)
   const [inputValidation, setInputValidation] = useState(false)
-  const [user, setUser] = useState([])
   const [userDataAccess, setUserDataAccess] = useState([])
   const [itemData, setItemData] = useState([])
   
@@ -14,15 +13,16 @@ const GlobalContext = ({ children }) => {
   
   // USER API
   // API GET
-  const api = async () => {
-    const res = await fetch(`http://localhost:3000/user`)
+  const newUser = async (event) => {
+    const res = await fetch(`http://localhost:3000/user`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(event)
+    })
     const data = await res.json()
-    setUser([...data])
   }
-  
-  useEffect(() => {
-    api()
-  }, [])
 
   // API PUSH
   
@@ -30,7 +30,7 @@ const GlobalContext = ({ children }) => {
     <Contexto.Provider value={{ 
       isLog, 
       setIsLog, 
-      user, 
+      newUser,
       setUserDataAccess, 
       userDataAccess,
       itemData, 

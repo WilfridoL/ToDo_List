@@ -1,0 +1,58 @@
+header{
+  width: 100%;
+  padding: 30px 60px; 
+  box-sizing: border-box;
+}
+
+nav{ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: var(--size-32);
+  font-weight: var(--weight-bold);
+}
+
+ul{
+  display: inherit;
+  align-items: center;
+  gap: 20px;
+  font-size: var(--size-20);
+}
+
+ul .user{
+  display: inherit;
+  align-items: center;
+  color: var(--violet-300);
+  font-size: var(--size-32);
+  gap: 20px;
+  h3{
+    color: #FFF;
+    font-size: var(--size-20);
+    font-weight: var(--weight-regular);
+  }
+}
+
+nav button {
+  display: inherit;
+  align-items: center;
+  gap: 12px;
+  background: #111827;
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--violet-300);
+  .icon_logUp{
+    color: var(--violet-500);
+    font-size: 25px;
+  }
+  &:hover{
+    color: var(--red-500);
+    .icon_logUp{
+      color: var(--red-500);
+    }
+  }
+}

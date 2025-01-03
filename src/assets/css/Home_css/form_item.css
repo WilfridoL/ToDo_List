@@ -1,0 +1,82 @@
+/* style input new item */
+.input_new_item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.input_new_item input {
+  width: 50vw;
+}
+
+.input_new_item button,
+.icon_plus {
+  width: 50px;
+  height: 50px;
+  display: inherit;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--violet-500);
+  border-radius: 50%;
+  font-size: var(--size-32);
+  color: var(--violet-300);
+}
+
+.input_new_item button[type="button"] {
+  color: var(--red-500);
+
+  &:hover {
+    background: var(--red-500);
+    border-color: var(--red-500);
+    color: var(--violet-100);
+  }
+}
+
+.input_new_item button[type="submit"] {
+  color: var(--violet-100);
+  background: var(--violet-500);
+  font-size: var(--size-20);
+
+  &:hover {
+    background: var(--violet-900);
+    border-color: var(--violet-900);
+  }
+}
+
+/* style add item */
+.btn_new_item button {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: var(--size-20);
+  font-weight: var(--weight-regular);
+  color: inherit;
+
+  &:hover {
+    .icon_plus {
+      transition: var(--transition);
+      background: var(--violet-500);
+    }
+
+    color: var(--violet-100);
+  }
+
+  &:focus {
+    .icon_plus {
+      background: var(--violet-900);
+      border-color: var(--violet-900);
+    }
+  }
+}
+
+/* .icon_plus {
+  width: 50px;
+  height: 50px;
+  display: inherit;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--violet-500);
+  border-radius: 50%;
+  font-size: var(--size-32);
+  color: var(--violet-300);
+} */
