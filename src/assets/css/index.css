@@ -8,7 +8,9 @@ body {
   font-family: "Inter", serif;
 }
 
-input {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   border: none;
   background: none;
   outline: none;

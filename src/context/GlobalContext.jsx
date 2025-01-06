@@ -8,9 +8,12 @@ const GlobalContext = ({ children }) => {
   const [inputValidation, setInputValidation] = useState(false)
   const [userDataAccess, setUserDataAccess] = useState([])
   const [itemData, setItemData] = useState([])
-  
-
-  
+  const itemDelete = (id) => {
+    itemData.map(event => {
+      if(event.id == id) console.log(event);
+    })
+    console.log(itemData);
+  }
   // USER API
   // API GET
   const newUser = async (event) => {
@@ -35,6 +38,7 @@ const GlobalContext = ({ children }) => {
       userDataAccess,
       itemData, 
       setItemData,
+      itemDelete,
       inputValidation, 
       setInputValidation
       }}>

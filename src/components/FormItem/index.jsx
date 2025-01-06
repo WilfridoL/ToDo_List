@@ -18,9 +18,10 @@ const FormItem = () => {
       check: false
     }
     setItemData((prevItem) => [...prevItem, data])
-
+    resetInput()
+    setActiveAdd(!activeAdd)
   }
-
+  const resetInput = () => { setTextItem("") }
   return (<>
     <div className="new_item">
       {activeAdd ? <form onSubmit={dataItem} className="input_new_item">

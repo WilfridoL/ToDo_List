@@ -2,19 +2,30 @@ import React, { useState } from 'react'
 import Item from './Item'
 
 const ContainerItem = ({item}) => {
-  console.log(item.lenght);
+  let length0fObject = 0;
+  const getLengthOfObject = (obj) => {
+
+      for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          length0fObject++;
+        }
+      }
+
+      // console.log(length0fObject);
+      return length0fObject;
+    }
+
   
+  getLengthOfObject(item)
   return (
     <>
       <div className="containerItem">
-        {item ? <>
+        {length0fObject != 0 ? <>
+          {item.map(event => <Item data={event} key={event.id} />)}
+        </> : <>
           <h1>No hay tareas disponibles,
           Por favor ingrese nuevas tareas</h1>
-        </> : <>
-        <h2>Por ahora no hay lista de tareas</h2>
-        <h4>Por favor ingrese una lista de tareas</h4>
         </>}
-        {item.map(event => <Item data={event} key={event.id} />)}
       </div>
     </>
   )
